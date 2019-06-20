@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- style样式代码 -->
+		<style>
+			html {
+				height: 100%;
+				width: 100%;
+			}
+
+			body {
+				height: 100%;
+				width: 100%;
+			}
+
+			div {
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				height: 100%;
+				width: 100%;
+			}
+
+			#page1 {
+				background-image: url(img/halloween1.jpg);
+				/* background-repeat: no-repeat; */
+				/* background-size: 100% 100%; */
+				/* height: 100%; */
+				/* width: 100%; */
+				-display: none;
+			}
+
+			#title {
+				position: fixed;
+				left: 380px;
+				top: 170px;
+				animation: titlemove 3s infinite;
+			}
+			@keyframes titlemove{
+					from{
+						opacity: 0;
+					}
+					to{
+						opacity: 1;
+					}
+				}
+			#box {
+				position: fixed;
+				left: 330px;
+				bottom: 525px;
+				animation: boxmove 1s infinite;
+			}
+			@keyframes boxmove{
+				0%{
+					left:330px;
+				}
+				40%{
+					left:360px;
+				}
+				100%{
+					left: 340px;
+				}
+			}
+			#page2 {
+				background-image: url(img/halloween2.jpg);
+				/* background-repeat: no-repeat; */
+				/* background-size: 100% 100%; */
+				/* height: 100%; */
+				/* width: 100%; */
+				display: none;
+			}
+
+			#pump {
+				position: fixed;
+				left: 295px;
+				top: 170px;
+			}
+
+			#start {
+				position: fixed;
+				left: 380px;
+				bottom: 435px;
+			}
+
+			#page3 {
+				background-image: url(img/halloweenMain3.jpg);
+				display: none
+			}
+
+			#charm01 {
+				position: fixed;
+				left: 50px;
+				top: 100px;
+				animation: charm01 4s infinite;
+			}
+			@keyframes charm01{
+				0%{
+					left: 50px;
+					top: 100px;
+					opacity: 1;
+				}
+				25%{
+					left:220px ;
+					top: 120px;
+					opacity: 0.4;
+				}
+				50%{
+					left:60px ;
+					top: 240px;
+					opacity: 0.8;
+				}
+			}
+			
+			#charm02 {
+				position: fixed;
+				left: 250px;
+				top: 400px;
+			}
+
+			#charm03 {
+				position: fixed;
+				left: 50px;
+				top: 650px;
+			}
+
+			#charm04 {
+				position: fixed;
+				left: 500px;
+				top: 50px;
+				animation: charm04 4s infinite;
+			}
+			@keyframes charm04{
+				10%{
+					left: 720px;
+					top: 180px;
+				}
+				15%{
+					left: 600px;
+					top: 300px;
+				}
+				35%{
+					left: 600px;
+					top: 300px;
+				}
+				60%{
+					left: 650px;
+					top: 200px;
+				}
+			}
+
+			#charm05 {
+				position: fixed;
+				left: 400px;
+				top: 900px;
+			}
+
+			#charm06 {
+				position: fixed;
+				left: 300px;
+				top: 800px;
+			}
+			
+			#charm07 {
+				position: fixed;
+				right: 50px;
+				bottom: 300px;
+			}
+			
+			
+			
+		</style>
+		<script>
+			function suiji(){
+				var num =Math.floor(Math.random()*7+1);
+				//alert(num);
+				//url(img/halloweenMain3.jpg)
+				var pic = "url(img/charm"+num+".jpg)";
+				//alert(pic);
+				var p4 = document.getElementById("page4");
+				p4.style.backgroundImage = pic;
+			}
+			/* function boxdianji(){
+				var page1 = document.getElementById("page1");
+				page1.style.display = "none";
+				var page2 =document.getElementById("page2");
+				page2.style.display = "block";
+			}	
+			function start(){
+				var page2 = document.getElementById("page2");
+				page2.style.display = "none";
+				var page3 = document.getElementById("page3");
+				page3.style.display = "block";
+			} */
+			function next(shuzi){
+				var page1 = document.getElementById("page1");
+				var page2 = document.getElementById("page2");
+				var page3 = document.getElementById("page3");
+				var page4 = document.getElementById("page4");
+				page1.style.display = "none";
+				page2.style.display = "none";
+				page3.style.display = "none";
+				page4.style.display = "none";
+				var aaa ="page"+shuzi;
+				var showpg = document.getElementById(aaa);
+				showpg.style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="page1">
+			<img id="title" src="img/title.png">
+			<img id="box" src="img/box.png" onclick="next(2)"/>
+		</div>
+		<div id="page2">
+			<img id="pump" src="img/pumpkin.png">
+			<img id="start" src="img/startGame.jpg" onclick="next(3)">
+		</div>
+		<div id="page3">
+			<img id="charm01" src="img/1.png" onclick="suiji(),next(4)"/>
+			<img id="charm02" src="img/2.png" onclick="suiji(),next(4)"/>
+			<img id="charm03" src="img/3.png" onclick="suiji(),next(4)"/>
+			<img id="charm04" src="img/4.png" onclick="suiji(),next(4)"/>
+			<img id="charm05" src="img/5.png" onclick="suiji(),next(4)"/>
+			<img id="charm06" src="img/6.png" onclick="suiji(),next(4)"/>
+			<img id="charm07" src="img/7.png" onclick="suiji(),next(4)"/>
+		</div>
+		<div id="page4">
+
+		</div>
+	</body>
+</html>
